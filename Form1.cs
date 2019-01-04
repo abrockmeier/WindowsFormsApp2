@@ -16,30 +16,22 @@ namespace WindowsFormsApp2
 		{
 			InitializeComponent();
 		}
-
 		public bool KA_l = true;
-
 		private void BT_KA_r_Click(object sender, EventArgs e)
 		{
-			// Spiegeln
 			int width = ActiveForm.Width -177;
 			if (P_Ab.Location.X + P_Ab.Width < width - P_Ab.Width)
 				while (KA_l)
 				{
 					Point actualPointHg = new Point(P_Hg.Location.X + 2*P_Ab.Width,
 					P_Kg.Location.Y + P_Ab.Height);
-
 					P_Hg.Location = actualPointHg;
-
 					Point actualPointAb = new Point(P_Ab.Location.X + P_Ab.Width + P_Kg.Width,
 					P_Ab.Location.Y);
-
 					P_Ab.Location = actualPointAb;
-
 					KA_l = false;
 				}
 		}
-
 		private void BT_KA_l_Click(object sender, EventArgs e)
 		{
 			if (P_Ab.Location.X - P_Ab.Width > 10)
@@ -47,30 +39,24 @@ namespace WindowsFormsApp2
 				{
 					Point actualPointHg = new Point(P_Hg.Location.X  - 2*P_Ab.Width,
 					P_Kg.Location.Y + P_Ab.Height );
-
 					P_Hg.Location = actualPointHg;
-
 					Point actualPointAb = new Point(P_Ab.Location.X - P_Ab.Width - P_Kg.Width,
 					P_Ab.Location.Y);
-
 					P_Ab.Location = actualPointAb;
-
 					KA_l = true;
 				}
 		}
-
 		private void BT_H_ausf_Click(object sender, EventArgs e)
 		{
 			if (P_Hg.Height < P_Kg.Height )
+			if (!(P_Ab.Width <= 60 && P_Hg.Height <= P_Kg.Height))  
 			P_Hg.Height += 10;
 		}
-
 		private void H_einf_Click(object sender, EventArgs e)
 		{
 			if (P_Hg.Height > 40)
 			P_Hg.Height -= 10;
 		}
-
 		private void BT_A_ausf_Click(object sender, EventArgs e)
 		{
 			int width = ActiveForm.Width - P_Ab.Location.X -147;;
@@ -98,7 +84,6 @@ namespace WindowsFormsApp2
 				}
 			}
 		}
-
 		private void BT_A_einf_Click(object sender, EventArgs e)
 		{
 			if (KA_l)
@@ -106,11 +91,9 @@ namespace WindowsFormsApp2
 				if (P_Ab.Width >= 40)
 				{
 					P_Ab.Width -= 10;
-					
 					Point actualPointAb = new Point(P_Ab.Location.X +10,
 					P_Ab.Location.Y);
 					P_Ab.Location = actualPointAb;
-
 					Point actualPointHg = new Point(P_Hg.Location.X  +10,
 					P_Hg.Location.Y);
 					P_Hg.Location = actualPointHg;
@@ -133,48 +116,40 @@ namespace WindowsFormsApp2
 				}
 			}
 		}
-
 		private void BT_K_ausf_Click(object sender, EventArgs e)
 		{
-
 			if (P_Kg.Location.Y > 10)
 			{
-			P_Kg.Height += 10;
-			Point actualPointKg = new Point(P_Kg.Location.X,
-			P_Kg.Location.Y - 10);
-			P_Kg.Location = actualPointKg;
-
-			Point actualPointHg = new Point(P_Hg.Location.X,
-			P_Hg.Location.Y - 10);
-			P_Hg.Location = actualPointHg;
-
-			Point actualPointAb = new Point(P_Ab.Location.X,
-			P_Ab.Location.Y - 10);
-			P_Ab.Location = actualPointAb;
+				P_Kg.Height += 10;
+				Point actualPointKg = new Point(P_Kg.Location.X,
+				P_Kg.Location.Y - 10);
+				P_Kg.Location = actualPointKg;
+				Point actualPointHg = new Point(P_Hg.Location.X,
+				P_Hg.Location.Y - 10);
+				P_Hg.Location = actualPointHg;
+				Point actualPointAb = new Point(P_Ab.Location.X,
+				P_Ab.Location.Y - 10);
+				P_Ab.Location = actualPointAb;
 			}
 		}
-
 		private void BT_K_einf_Click(object sender, EventArgs e)
 		{
-			int height = ActiveForm.Height;
-
-			if ((P_Kg.Height + 120 < P_Hg.Height + P_Ab.Height) || (P_Kg.Height > 40 && P_Kg.Height > P_Hg.Height -10))
-			{
-			P_Kg.Height -= 10;
-			Point actualPointKg = new Point(P_Kg.Location.X,
-			P_Kg.Location.Y + 10);
-			P_Kg.Location = actualPointKg;
-
-			Point actualPointAb = new Point(P_Ab.Location.X,
-			P_Ab.Location.Y + 10);
-			P_Ab.Location = actualPointAb;
-			
-			Point actualPointHg = new Point(P_Hg.Location.X,
-			P_Hg.Location.Y + 10);
-			P_Hg.Location = actualPointHg;
-			}
+			if (!(P_Ab.Width <= 60 && P_Hg.Height <= P_Kg.Height)
+			|| (P_Kg.Height +10 > P_Hg.Height + P_Ab.Height))
+				if (P_Hg.Height < P_Kg.Height -20)
+				{
+					P_Kg.Height -= 10;
+					Point actualPointKg = new Point(P_Kg.Location.X,
+					P_Kg.Location.Y + 10);
+					P_Kg.Location = actualPointKg;
+					Point actualPointAb = new Point(P_Ab.Location.X,
+					P_Ab.Location.Y + 10);
+					P_Ab.Location = actualPointAb;
+					Point actualPointHg = new Point(P_Hg.Location.X,
+					P_Hg.Location.Y + 10);
+					P_Hg.Location = actualPointHg;
+				}
 		}
-
 		private void BT_Mleft_Click(object sender, EventArgs e)
 		{
 			if (P_Fr.Location.X > 0 && P_Ab.Location.X > 0)
@@ -182,21 +157,17 @@ namespace WindowsFormsApp2
 				Point actualPointHg = new Point(P_Hg.Location.X - 10,
 				P_Hg.Location.Y);
 				P_Hg.Location = actualPointHg;
-
 				Point actualPointAb = new Point(P_Ab.Location.X - 10,
 				P_Ab.Location.Y);
 				P_Ab.Location = actualPointAb;
-
 				Point actualPointKg = new Point(P_Kg.Location.X - 10,
 				P_Kg.Location.Y);
 				P_Kg.Location = actualPointKg;
-
 				Point actualPointFr = new Point(P_Fr.Location.X - 10,
 				P_Fr.Location.Y);
 				P_Fr.Location = actualPointFr;
 			}
 		}
-
 		private void BT_Mright_Click(object sender, EventArgs e)
 		{
 			int width = ActiveForm.Width -167;
@@ -205,39 +176,28 @@ namespace WindowsFormsApp2
 				Point actualPointHg = new Point(P_Hg.Location.X + 10,
 				P_Hg.Location.Y);
 				P_Hg.Location = actualPointHg;
-
 				Point actualPointAb = new Point(P_Ab.Location.X + 10,
 				P_Ab.Location.Y);
 				P_Ab.Location = actualPointAb;
-
 				Point actualPointKg = new Point(P_Kg.Location.X + 10,
 				P_Kg.Location.Y);
 				P_Kg.Location = actualPointKg;
-
 				Point actualPointFr = new Point(P_Fr.Location.X + 10,
 				P_Fr.Location.Y);
 				P_Fr.Location = actualPointFr;
 			}
 		}
-
 		private void P_Hg_Paint(object sender, PaintEventArgs e)
 		{
-			
 		}
-
 		private void P_Ab_Paint(object sender, PaintEventArgs e)
 		{
-			
 		}
-
 		private void P_Kg_Paint(object sender, PaintEventArgs e)
 		{
-			
 		}
-
 		private void P_Fr_Paint(object sender, PaintEventArgs e)
 		{
-			
 		}
 	}
 }
