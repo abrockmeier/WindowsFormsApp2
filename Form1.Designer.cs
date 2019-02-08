@@ -215,7 +215,7 @@
 			// 
 			// P_Ab
 			// 
-			this.P_Ab.BackColor = System.Drawing.Color.SteelBlue;
+			this.P_Ab.BackColor = System.Drawing.Color.MediumVioletRed;
 			this.P_Ab.Location = new System.Drawing.Point(211, 210);
 			this.P_Ab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.P_Ab.Name = "P_Ab";
